@@ -1,0 +1,30 @@
+[build-system]
+build-backend = "setuptools.build_meta"
+requires = ["setuptools"]
+
+[project]
+name = 'rpi-provision'                   # will used in pip install <name>
+description = 'Raspberry Pi Provisioner'
+requires-python = ">=3.9"
+version = "0.1.0"
+readme = 'README.md'
+dependencies = ["jinja2", "pyyaml"]
+
+[project.optional-dependencies]
+# for development
+dev = [
+  "mypy",               # type checking
+  "black",              # code formatting
+  "isort",              # import sorting
+  "flake8",             # linter
+  "pylint",             # flake8  plugin, common errors and warnings
+  "pyflakes",           # flake8 plugin, common errors
+  "pycodestyle",        # flake8 plugin, opinionated code style
+  "flake8-annotations", # warn when forgetting type annotations
+  "flake8-bandit",      # common security issues
+  "flake8-bugbear",     # common bugs
+  "ipython",            # for interactive mode
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
